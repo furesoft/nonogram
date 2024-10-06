@@ -25,7 +25,7 @@ jobs:
         run: dotnet workload install wasi-experimental
 
       - name: build
-        run: dotnet build --configuration Release --output src/Nonogram/Nonogram.Browser/build src/Nonogram/Nonogram.Browser/Nonogram.Browser.csproj
+        run: dotnet build --configuration Release --output src/Nonogram.Browser/build src/Nonogram.Browser/Nonogram.Browser.csproj
 
       - name: Deploy to Github Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
@@ -33,5 +33,5 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BASE_BRANCH: main # The branch the action should deploy from.
           BRANCH: gh-pages-from-actions # The branch the action should deploy to.
-          FOLDER: src/Nonogram/Nonogram.Browser/build/AppBundle/
+          FOLDER: src/Nonogram.Browser/build/AppBundle/
           SINGLE_COMMIT: true
