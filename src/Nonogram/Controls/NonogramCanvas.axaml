@@ -7,6 +7,5 @@
              x:Class="Nonogram.Controls.NonogramCanvas">
     <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*">
         <controls:GridLineRenderer Grid.ColumnSpan="3" Grid.RowSpan="3" LineColor="White" />
-
     </Grid>
 </UserControl>
