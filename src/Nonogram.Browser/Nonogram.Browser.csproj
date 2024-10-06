@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WebAssembly">
+    <PropertyGroup>
+        <TargetFramework>net8.0-browser</TargetFramework>
+        <OutputType>Exe</OutputType>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <WasmMainJSPath>wwwroot\main.js</WasmMainJSPath>
+        <WasmRuntimeAssetsLocation>./_framework</WasmRuntimeAssetsLocation>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia.Browser" Version="$(AvaloniaVersion)" />
+        <PackageReference Include="Microsoft.JSInterop.WebAssembly" Version="8.0.8" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Nonogram\Nonogram.csproj"/>
+    </ItemGroup>
+</Project>
