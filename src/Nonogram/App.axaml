@@ -11,5 +11,7 @@
 
     <Application.Styles>
         <FluentTheme />
+
+        <StyleInclude Source="Controls/Pixel.axaml" />
     </Application.Styles>
 </Application>
