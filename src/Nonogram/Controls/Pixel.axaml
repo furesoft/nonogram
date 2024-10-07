@@ -1,6 +1,5 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="using:Nonogram.Controls"
         xmlns:controls1="clr-namespace:NonoGramGen.Controls">
     <Design.PreviewWith>
         <controls1:Pixel />

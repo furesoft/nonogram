@@ -8,8 +8,6 @@
              x:Class="NonoGramGen.Views.MainView"
              x:DataType="viewModels:MainViewModel">
     <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-         to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <viewModels:MainViewModel />
     </Design.DataContext>
 
@@ -31,7 +29,7 @@
         </Menu>
 
         <Border Grid.Row="1" Background="Gray" Width="150" Height="150">
-            <controls:NonogramCanvas Margin="12" Width="100" Height="100" />
+            <controls:NonogramCanvas Margin="12" Width="100" Height="100" RowCount="5" ColumnCount="5" />
         </Border>
     </Grid>
 </UserControl>

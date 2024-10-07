@@ -20,4 +20,11 @@
         <PackageReference Include="Avalonia.Xaml.Interactions" Version="11.1.0.4"/>
         <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2"/>
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Controls\NonogramCanvas.axaml.cs">
+        <DependentUpon>NonogramCanvas2.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>
