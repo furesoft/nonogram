@@ -28,8 +28,13 @@
             </MenuItem>
         </Menu>
 
-        <Border Grid.Row="1" Background="Gray" Width="150" Height="150">
-            <controls:NonogramCanvas Margin="12" Width="100" Height="100" RowCount="5" ColumnCount="5" />
-        </Border>
+        <StackPanel Grid.Row="1">
+            <Slider Minimum="3" Maximum="10" Value="{Binding #Canvas.RowCount}"></Slider>
+            <Slider Minimum="3" Maximum="10" Value="{Binding #Canvas.ColumnCount}"></Slider>
+            
+            <Border  Background="Gray" Width="150" Height="150">
+                <controls:NonogramCanvas x:Name="Canvas" Margin="12" Width="100" Height="100" RowCount="5" ColumnCount="5" />
+            </Border>
+        </StackPanel>
     </Grid>
 </UserControl>

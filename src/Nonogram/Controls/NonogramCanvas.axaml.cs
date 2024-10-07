@@ -1,4 +1,5 @@
-﻿using Avalonia;
+﻿using System;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
@@ -18,23 +19,13 @@ public class NonogramCanvas : TemplatedControl
     public int RowCount
     {
         get => GetValue(RowCountProperty);
-        set
-        {
-            SetValue(RowCountProperty, value);
-            
-            InitGrid();
-        }
+        set => SetValue(RowCountProperty, value);
     }
 
     public int ColumnCount
     {
         get => GetValue(ColumnCountProperty);
-        set
-        {
-            SetValue(ColumnCountProperty, value);
-            
-            InitGrid();
-        }
+        set => SetValue(ColumnCountProperty, value);
     }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -44,6 +35,13 @@ public class NonogramCanvas : TemplatedControl
         InitGrid();
         
         base.OnApplyTemplate(e);
+    }
+
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+    {
+        base.OnPropertyChanged(change);
+        
+        InitGrid();
     }
 
     private void InitGrid()
