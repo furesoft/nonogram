@@ -1,14 +1,13 @@
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.Data.Core;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
-using Nonogram.ViewModels;
-using Nonogram.Views;
+using NonoGramGen.ViewModels;
+using NonoGramGen.Views;
 
-namespace Nonogram;
+namespace NonoGramGen;
 
-public partial class App : Application
+public class App : Application
 {
     public override void Initialize()
     {

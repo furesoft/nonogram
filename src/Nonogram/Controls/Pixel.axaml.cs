@@ -1,13 +1,13 @@
 ﻿using Avalonia;
-using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Input;
 
-namespace Nonogram.Controls;
+namespace NonoGramGen.Controls;
 
 public class Pixel : TemplatedControl
 {
-    public static readonly StyledProperty<bool> IsActivatedProperty = AvaloniaProperty.Register<Pixel, bool>(nameof(IsActivated));
+    public static readonly StyledProperty<bool> IsActivatedProperty =
+        AvaloniaProperty.Register<Pixel, bool>(nameof(IsActivated));
 
     public bool IsActivated
     {

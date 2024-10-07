@@ -1,9 +1,9 @@
 using System;
 using Avalonia.Controls;
 using Avalonia.Controls.Templates;
-using Nonogram.ViewModels;
+using NonoGramGen.ViewModels;
 
-namespace Nonogram;
+namespace NonoGramGen;
 
 public class ViewLocator : IDataTemplate
 {
@@ -15,10 +15,7 @@ public class ViewLocator : IDataTemplate
         var name = data.GetType().FullName!.Replace("ViewModel", "View", StringComparison.Ordinal);
         var type = Type.GetType(name);
 
-        if (type != null)
-        {
-            return (Control)Activator.CreateInstance(type)!;
-        }
+        if (type != null) return (Control)Activator.CreateInstance(type)!;
 
         return new TextBlock { Text = "Not Found: " + name };
     }

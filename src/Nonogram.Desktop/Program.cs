@@ -1,5 +1,6 @@
 ﻿using System;
 using Avalonia;
+using NonoGramGen;
 
 namespace Nonogram.Desktop;
 

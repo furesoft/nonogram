@@ -1,6 +1,6 @@
 using Avalonia.Controls;
 
-namespace Nonogram.Views;
+namespace NonoGramGen.Views;
 
 public partial class MainView : UserControl
 {

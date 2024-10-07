@@ -3,23 +3,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:controls="clr-namespace:Nonogram.Controls"
+             xmlns:controls1="clr-namespace:NonoGramGen.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Nonogram.Controls.NonogramCanvas">
+             x:Class="NonoGramGen.Controls.NonogramCanvas">
     <Border BorderBrush="{DynamicResource GridColor}" BorderThickness="3">
         <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*">
-            <controls:Pixel Grid.Row="0" Grid.Column="0" />
-            <controls:Pixel Grid.Row="0" Grid.Column="1" />
-            <controls:Pixel Grid.Row="0" Grid.Column="2" />
+            <controls1:Pixel Grid.Row="0" Grid.Column="0" />
+            <controls1:Pixel Grid.Row="0" Grid.Column="1" />
+            <controls1:Pixel Grid.Row="0" Grid.Column="2" />
 
-            <controls:Pixel Grid.Row="1" Grid.Column="0" />
-            <controls:Pixel Grid.Row="1" Grid.Column="1" />
-            <controls:Pixel Grid.Row="1" Grid.Column="2" />
+            <controls1:Pixel Grid.Row="1" Grid.Column="0" />
+            <controls1:Pixel Grid.Row="1" Grid.Column="1" />
+            <controls1:Pixel Grid.Row="1" Grid.Column="2" />
 
-            <controls:Pixel Grid.Row="2" Grid.Column="0" />
-            <controls:Pixel Grid.Row="2" Grid.Column="1" />
-            <controls:Pixel Grid.Row="2" Grid.Column="2" />
-            
-            <controls:GridLineRenderer Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" LineColor="{DynamicResource GridColor}" />
+            <controls1:Pixel Grid.Row="2" Grid.Column="0" />
+            <controls1:Pixel Grid.Row="2" Grid.Column="1" />
+            <controls1:Pixel Grid.Row="2" Grid.Column="2" />
+
+            <controls1:GridLineRenderer Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                                       LineColor="{DynamicResource GridColor}" />
         </Grid>
     </Border>
 </UserControl>

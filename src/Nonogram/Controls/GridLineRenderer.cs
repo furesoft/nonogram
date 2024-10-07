@@ -2,7 +2,7 @@
 using Avalonia.Controls;
 using Avalonia.Media;
 
-namespace Nonogram.Controls;
+namespace NonoGramGen.Controls;
 
 public class GridLineRenderer : Control
 {

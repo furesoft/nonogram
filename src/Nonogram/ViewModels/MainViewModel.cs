@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Nonogram.ViewModels;
+namespace NonoGramGen.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {

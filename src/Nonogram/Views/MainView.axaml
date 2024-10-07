@@ -2,15 +2,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:vm="clr-namespace:Nonogram.ViewModels"
-             xmlns:controls="clr-namespace:Nonogram.Controls"
+             xmlns:viewModels="clr-namespace:NonoGramGen.ViewModels"
+             xmlns:controls="clr-namespace:NonoGramGen.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Nonogram.Views.MainView"
-             x:DataType="vm:MainViewModel">
+             x:Class="NonoGramGen.Views.MainView"
+             x:DataType="viewModels:MainViewModel">
     <Design.DataContext>
         <!-- This only sets the DataContext for the previewer in an IDE,
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainViewModel />
+        <viewModels:MainViewModel />
     </Design.DataContext>
 
     <Grid RowDefinitions="Auto, *">
@@ -21,9 +21,9 @@
                     <MenuItem Header="Nonogram" />
                 </MenuItem>
 
-                <MenuItem Header="Open"></MenuItem>
-                <MenuItem Header="Save"></MenuItem>
-                <MenuItem Header="Import"></MenuItem>
+                <MenuItem Header="Open" />
+                <MenuItem Header="Save" />
+                <MenuItem Header="Import" />
                 <MenuItem Header="Export">
                     <MenuItem Header="Pdf" />
                 </MenuItem>
@@ -31,7 +31,7 @@
         </Menu>
 
         <Border Grid.Row="1" Background="Gray" Width="150" Height="150">
-            <controls:NonogramCanvas  Margin="12" Width="100" Height="100" />
+            <controls:NonogramCanvas Margin="12" Width="100" Height="100" />
         </Border>
     </Grid>
 </UserControl>

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Browser;
 using Nonogram;
+using NonoGramGen;
 
 [assembly: SupportedOSPlatform("browser")]
 

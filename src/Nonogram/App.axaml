@@ -1,12 +1,13 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:Nonogram"
-             x:Class="Nonogram.App"
+             xmlns:nonoGramGen="clr-namespace:NonoGramGen"
+             x:Class="NonoGramGen.App"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
 
     <Application.DataTemplates>
-        <local:ViewLocator/>
+        <nonoGramGen:ViewLocator />
     </Application.DataTemplates>
 
     <Application.Styles>
@@ -14,7 +15,7 @@
 
         <StyleInclude Source="Controls/Pixel.axaml" />
     </Application.Styles>
-             
+
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.ThemeDictionaries>
@@ -23,7 +24,7 @@
                     <SolidColorBrush x:Key='PixelDeactivate'>White</SolidColorBrush>
                     <SolidColorBrush x:Key='GridColor'>White</SolidColorBrush>
                 </ResourceDictionary>
-                
+
                 <ResourceDictionary x:Key='Dark'>
                     <SolidColorBrush x:Key='PixelActivate'>White</SolidColorBrush>
                     <SolidColorBrush x:Key='PixelDeactivate'>#3C3D37</SolidColorBrush>

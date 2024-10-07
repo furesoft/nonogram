@@ -1,8 +1,6 @@
-﻿using Avalonia;
-using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
+﻿using Avalonia.Controls;
 
-namespace Nonogram.Controls;
+namespace NonoGramGen.Controls;
 
 public partial class NonogramCanvas : UserControl
 {

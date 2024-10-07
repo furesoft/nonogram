@@ -1,25 +1,27 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="using:Nonogram.Controls">
+        xmlns:controls="using:Nonogram.Controls"
+        xmlns:controls1="clr-namespace:NonoGramGen.Controls">
     <Design.PreviewWith>
-        <controls:Pixel />
+        <controls1:Pixel />
     </Design.PreviewWith>
 
-    <Style Selector="controls|Pixel">
+    <Style Selector="controls1|Pixel">
         <Setter Property="Background" Value="{DynamicResource PixelDeactivate}" />
         <Setter Property="Margin" Value="1" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"></Border>
+                <Border Background="{TemplateBinding Background}" Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}" />
             </ControlTemplate>
         </Setter>
     </Style>
 
-    <Style Selector="controls|Pixel[IsPointerOver=True]">
+    <Style Selector="controls1|Pixel[IsPointerOver=True]">
         <Setter Property="Background" Value="{DynamicResource PixelActivate}" />
     </Style>
 
-    <Style Selector="controls|Pixel[IsActivated=True]">
+    <Style Selector="controls1|Pixel[IsActivated=True]">
         <Setter Property="Background" Value="{DynamicResource PixelActivate}" />
     </Style>
 </Styles>
