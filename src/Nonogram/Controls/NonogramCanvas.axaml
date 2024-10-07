@@ -5,7 +5,7 @@
              xmlns:controls="clr-namespace:Nonogram.Controls"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="Nonogram.Controls.NonogramCanvas">
-    <Border BorderBrush="White" BorderThickness="3">
+    <Border BorderBrush="{DynamicResource GridColor}" BorderThickness="3">
         <Grid ColumnDefinitions="*,*,*" RowDefinitions="*,*,*">
             <controls:Pixel Grid.Row="0" Grid.Column="0" />
             <controls:Pixel Grid.Row="0" Grid.Column="1" />
@@ -19,7 +19,7 @@
             <controls:Pixel Grid.Row="2" Grid.Column="1" />
             <controls:Pixel Grid.Row="2" Grid.Column="2" />
             
-            <controls:GridLineRenderer Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" LineColor="White" />
+            <controls:GridLineRenderer Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" LineColor="{DynamicResource GridColor}" />
         </Grid>
     </Border>
 </UserControl>

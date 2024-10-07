@@ -30,6 +30,8 @@
             </MenuItem>
         </Menu>
 
-        <controls:NonogramCanvas Grid.Row="1" Margin="12" Width="100" Height="100" />
+        <Border Grid.Row="1" Background="Gray" Width="150" Height="150">
+            <controls:NonogramCanvas  Margin="12" Width="100" Height="100" />
+        </Border>
     </Grid>
 </UserControl>

@@ -14,4 +14,22 @@
 
         <StyleInclude Source="Controls/Pixel.axaml" />
     </Application.Styles>
+             
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key='Light'>
+                    <SolidColorBrush x:Key='PixelActivate'>#3C3D37</SolidColorBrush>
+                    <SolidColorBrush x:Key='PixelDeactivate'>White</SolidColorBrush>
+                    <SolidColorBrush x:Key='GridColor'>White</SolidColorBrush>
+                </ResourceDictionary>
+                
+                <ResourceDictionary x:Key='Dark'>
+                    <SolidColorBrush x:Key='PixelActivate'>White</SolidColorBrush>
+                    <SolidColorBrush x:Key='PixelDeactivate'>#3C3D37</SolidColorBrush>
+                    <SolidColorBrush x:Key='GridColor'>#3C3D37</SolidColorBrush>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
