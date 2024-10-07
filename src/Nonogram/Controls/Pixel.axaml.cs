@@ -17,8 +17,6 @@ public class Pixel : TemplatedControl
 
     protected override void OnPointerReleased(PointerReleasedEventArgs e)
     {
-        base.OnPointerReleased(e);
-
         IsActivated = !IsActivated;
     }
 }
