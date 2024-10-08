@@ -8,6 +8,7 @@
     <Style Selector="controls1|Pixel">
         <Setter Property="Background" Value="{DynamicResource PixelDeactivate}" />
         <Setter Property="Margin" Value="1" />
+
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Background="{TemplateBinding Background}" Width="{TemplateBinding Width}"

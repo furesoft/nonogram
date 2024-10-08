@@ -1,8 +1,8 @@
-﻿using System;
+﻿namespace NonoGramGen.Model;
+
+using System;
 using System.Collections.Generic;
 using System.IO;
-
-namespace NonoGramGen.Model;
 
 public class Nonogram
 {
@@ -17,61 +17,76 @@ public class Nonogram
     public List<List<int>> Columns { get; set; } = new();
     public string Goal { get; set; }
 
-    public void ReadFromFile(string filePath)
+    // Methode, um die Datei aus einem Stream zu laden
+    public static Nonogram LoadFromStream(Stream stream)
     {
-        var lines = File.ReadAllLines(filePath);
-
-        // Read metadata
-        Catalogue = lines[0].Split('"')[1];
-        Title = lines[1].Split('"')[1];
-        Author = lines[2].Split('"')[1];
-        CopyrightInfo = lines[3].Split('"')[1];
-        LicenseInfo = lines[4].Split(' ')[1];
-        Height = int.Parse(lines[5].Split(' ')[1]);
-        Width = int.Parse(lines[6].Split(' ')[1]);
-
-        // Read rows
-        var rowIndex = Array.IndexOf(lines, "rows") + 2;
-        while (!string.IsNullOrWhiteSpace(lines[rowIndex]))
+        Nonogram nonogram = new Nonogram();
+        using (StreamReader reader = new StreamReader(stream))
         {
-            Rows.Add(new List<int>(Array.ConvertAll(lines[rowIndex].Split(','), int.Parse)));
-            rowIndex++;
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                if (line.StartsWith("catalogue "))
+                {
+                    nonogram.Catalogue = line.Substring(10).Trim();
+                }
+                else if (line.StartsWith("title "))
+                {
+                    nonogram.Title = line.Substring(6).Trim();
+                }
+                else if (line.StartsWith("by "))
+                {
+                    nonogram.Author = line.Substring(3).Trim();
+                }
+                else if (line.StartsWith("copyright "))
+                {
+                    nonogram.CopyrightInfo = line.Substring(10).Trim();
+                }
+                else if (line.StartsWith("license "))
+                {
+                    nonogram.LicenseInfo = line.Substring(8).Trim();
+                }
+                else if (line.StartsWith("height "))
+                {
+                    nonogram.Height = int.Parse(line.Substring(7).Trim());
+                }
+                else if (line.StartsWith("width "))
+                {
+                    nonogram.Width = int.Parse(line.Substring(6).Trim());
+                }
+                else if (line.StartsWith("rows"))
+                {
+                    nonogram.Rows = ParseMatrix(reader);
+                }
+                else if (line.StartsWith("columns"))
+                {
+                    nonogram.Columns = ParseMatrix(reader);
+                }
+                else if (line.StartsWith("goal "))
+                {
+                    nonogram.Goal = line.Substring(5).Trim();
+                }
+            }
         }
 
-        // Read columns
-        var colIndex = Array.IndexOf(lines, "columns") + 2;
-        while (!string.IsNullOrWhiteSpace(lines[colIndex]))
-        {
-            Columns.Add(new List<int>(Array.ConvertAll(lines[colIndex].Split(','), int.Parse)));
-            colIndex++;
-        }
-
-        // Read goal
-        Goal = lines[Array.IndexOf(lines, "goal") + 1].Split('"')[1];
+        return nonogram;
     }
 
-    public void WriteToFile(string filePath)
+    // Hilfsmethode, um Listen von Zahlen zu parsen (für Rows und Columns)
+    private static List<List<int>> ParseMatrix(StreamReader reader)
     {
-        using (var writer = new StreamWriter(filePath))
+        List<List<int>> matrix = new List<List<int>>();
+        string line;
+        while ((line = reader.ReadLine()) != null && !string.IsNullOrEmpty(line))
         {
-            writer.WriteLine($"catalogue \"{Catalogue}\"");
-            writer.WriteLine($"title \"{Title}\"");
-            writer.WriteLine($"by \"{Author}\"");
-            writer.WriteLine($"copyright \"{CopyrightInfo}\"");
-            writer.WriteLine($"license {LicenseInfo}");
-            writer.WriteLine($"height {Height}");
-            writer.WriteLine($"width {Width}");
-            writer.WriteLine();
-
-            writer.WriteLine("rows");
-            foreach (var row in Rows) writer.WriteLine(string.Join(",", row));
-
-            writer.WriteLine();
-            writer.WriteLine("columns");
-            foreach (var column in Columns) writer.WriteLine(string.Join(",", column));
-
-            writer.WriteLine();
-            writer.WriteLine($"goal \"{Goal}\"");
+            var numbers = line.Split(',', StringSplitOptions.RemoveEmptyEntries);
+            List<int> parsedNumbers = new List<int>();
+            foreach (var number in numbers)
+            {
+                parsedNumbers.Add(int.Parse(number.Trim()));
+            }
+            matrix.Add(parsedNumbers);
         }
+        return matrix;
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
+using NonoGramGen.Model;
 
 namespace NonoGramGen.Controls;
 
@@ -16,6 +18,9 @@ public class NonogramCanvas : TemplatedControl
     public static readonly StyledProperty<int> ColumnCountProperty =
         AvaloniaProperty.Register<NonogramCanvas, int>(nameof(RowCount));
 
+    public static readonly StyledProperty<Nonogram> NonogramProperty =
+        AvaloniaProperty.Register<NonogramCanvas, Nonogram>(nameof(Nonogram));
+
     public int RowCount
     {
         get => GetValue(RowCountProperty);
@@ -26,6 +31,12 @@ public class NonogramCanvas : TemplatedControl
     {
         get => GetValue(ColumnCountProperty);
         set => SetValue(ColumnCountProperty, value);
+    }
+
+    public Nonogram Nonogram
+    {
+        get => GetValue(NonogramProperty);
+        set => SetValue(NonogramProperty, value);
     }
 
     protected override void OnApplyTemplate(TemplateAppliedEventArgs e)
@@ -70,7 +81,13 @@ public class NonogramCanvas : TemplatedControl
             {
                 var pixel = new Pixel();
                 _grid!.Children.Add(pixel);
-                
+
+                var index = row * ColumnCount + col;
+                if (index < RowCount)
+                {
+                    pixel.IsActivated = Nonogram.Goal[index] == '1';
+                }
+
                 Grid.SetRow(pixel, row);
                 Grid.SetColumn(pixel, col);
             }
