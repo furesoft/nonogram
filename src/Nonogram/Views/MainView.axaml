@@ -29,11 +29,12 @@
         </Menu>
 
         <StackPanel Grid.Row="1">
-            <Slider Minimum="3" Maximum="10" Value="{Binding #Canvas.RowCount}"></Slider>
-            <Slider Minimum="3" Maximum="10" Value="{Binding #Canvas.ColumnCount}"></Slider>
+            <Slider x:Name="rowSlider" Minimum="3" Maximum="10" Value="3"></Slider>
+            <Slider x:Name="colSlider" Minimum="3" Maximum="10" Value="3"></Slider>
             
-            <Border  Background="Gray" Width="150" Height="150">
-                <controls:NonogramCanvas x:Name="Canvas" Margin="12" Width="100" Height="100" RowCount="5" ColumnCount="5" />
+            <Border Background="Gray" Width="300" Height="300">
+                <controls:NonogramCanvas x:Name="Canvas" Margin="12" Width="200" Height="200"
+                                         RowCount="{Binding #rowSlider.Value}" ColumnCount="{Binding #colSlider.Value}" />
             </Border>
         </StackPanel>
     </Grid>
