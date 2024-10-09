@@ -17,10 +17,6 @@
         </Setter>
     </Style>
 
-    <Style Selector="controls1|Pixel[IsPointerOver=True]">
-        <Setter Property="Background" Value="{DynamicResource PixelActivate}" />
-    </Style>
-
     <Style Selector="controls1|Pixel[IsActivated=True]">
         <Setter Property="Background" Value="{DynamicResource PixelActivate}" />
     </Style>
